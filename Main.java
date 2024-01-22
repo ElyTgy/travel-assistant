@@ -5,7 +5,7 @@
  * 
  * Program Element List: Seperating functions based on their functionality in the Utility and UI classes, use of hashmaps for storing information, use of try-catch, use of getOrDefault on HashMaps for error correction, use of ForEach on the HashMap from the iterable interface, mutiple uses of lambda expressions, use of SwingUtilities to prevent errors in relation to setting up JFrame. use of Lists and Arrays
  *
- * @author Ellie Taghavi
+ * @author Ellie Taghavi, Spencer Gray, and Ethan McLeod
  * @version January 21st, 2023
  */
 public class Main
