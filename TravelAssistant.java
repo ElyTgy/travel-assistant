@@ -71,12 +71,22 @@ public class TravelAssistant{
     }
 
     public void run() {
+        gui.updateDisplay("Waiting for city selection");
+        
         Utility.clearScreen();
-
+        
+        UI.showTitle();
+        Utility.printSpace();
+        
+        UI.showIntro();
+        Utility.printSpace();
+        
+        
         while (true) {
             gui.updateDisplay("Waiting for city selection");
             
             // Display continents
+            System.out.println("Select what continent you want to go to.");
             continentCities.keySet().forEach(continent -> System.out.println(Utility.capitalize(continent)));
             Utility.printSpace();
     
@@ -94,6 +104,7 @@ public class TravelAssistant{
             List<String> cities = continentCities.get(continent);
             
             // Display cities in the chosen continent
+            System.out.println("Select what city you want to go to.");
             cities.forEach(city -> System.out.println(Utility.capitalize(city)));
             Utility.printSpace();
     
@@ -103,6 +114,7 @@ public class TravelAssistant{
     
             String info = cityInfo.getOrDefault(city, "Information not available.");
             if (!info.equals("Information not available.")){
+                System.out.println("Please refer to the GUI for information about this city");
                 gui.updateDisplay(cityInfo.get(city));
             }
             else{
@@ -113,7 +125,7 @@ public class TravelAssistant{
             System.out.println("\nDo you want to go back to the menu (M) or exit (E)?");
             String choice = Utility.getString("Choose (M)enu or (E)xit: ", "Please enter M or E: ");
             if (choice.equalsIgnoreCase("E")) {
-                System.out.println("Goodbye!");
+                UI.showBye();
                 break;
             }
             Utility.pauseAndClearScreen();

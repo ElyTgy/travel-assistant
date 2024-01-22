@@ -39,6 +39,6 @@ public class GUI {
             if (label != null) {
                 label.setText(text);
             }
-    });
-}
+        });
+    }
 }
