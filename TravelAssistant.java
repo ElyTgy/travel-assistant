@@ -1,12 +1,20 @@
+
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Arrays;
+import javax.swing.SwingUtilities;
 
-public class TravelAssistant {
-    private static final Map<String, List<String>> continentCities = new HashMap<>();
-    private static final Map<String, String> cityInfo = new HashMap<>();
+public class TravelAssistant{
+    private GUI gui;
+
+    public TravelAssistant() {
+        gui = new GUI();
+    }
+
+    public static final Map<String, List<String>> continentCities = new HashMap<>();
+    public static final Map<String, String> cityInfo = new HashMap<>();
 
     
     static {
@@ -62,10 +70,12 @@ public class TravelAssistant {
         cityInfo.put("mcmurdo station", "Location: Antarctica\nPopulation: Approx. 1,000 (summer), 250 (winter)\nTemperature: Varies greatly, average -28°C\nTop 5 Activities: Observe Wildlife, Ice Fishing, Visit Observation Hill, Explore Ice Caves, Participate in Scientific Research");
     }
 
-    public static void main(String[] args) {
+    public void run() {
         Utility.clearScreen();
 
         while (true) {
+            gui.updateDisplay("Waiting for city selection");
+            
             // Display continents
             continentCities.keySet().forEach(continent -> System.out.println(Utility.capitalize(continent)));
             Utility.printSpace();
@@ -92,7 +102,13 @@ public class TravelAssistant {
             Utility.pauseAndClearScreen();
     
             String info = cityInfo.getOrDefault(city, "Information not available.");
-            System.out.println(info);
+            if (!info.equals("Information not available.")){
+                gui.updateDisplay(cityInfo.get(city));
+            }
+            else{
+                System.out.println(info);
+            }
+    
     
             System.out.println("\nDo you want to go back to the menu (M) or exit (E)?");
             String choice = Utility.getString("Choose (M)enu or (E)xit: ", "Please enter M or E: ");
@@ -103,6 +119,5 @@ public class TravelAssistant {
             Utility.pauseAndClearScreen();
         }
     }
-
-    
 }
+
