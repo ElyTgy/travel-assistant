@@ -1,4 +1,3 @@
-
 //Other parts of the 7 part UI have been implemented throughout the program
 public class UI
 {
@@ -7,7 +6,6 @@ public class UI
      * @param: None
      * @return: None
      */
-    
     public static void showTitle()
     {
         String art = 
@@ -49,10 +47,14 @@ public class UI
      */
     public static void showBye()
     {
-         System.out.println(" ____ ___  _ _____ _ ");
+        System.out.println(" ____ ___  _ _____ _ ");
         System.out.println("/  __\\\\  \\///  __// \\");
         System.out.println("| | // \\  / |  \\  | |");
         System.out.println("| |_\\  / /  |  /_ \\_/");
         System.out.println("\\____//_/   \\____\\(_)");
+     
+        Utility.printSpace();
+        
+        System.out.println("© 2024 Google Travel.");
     }//END of showBye
 }//END of UI

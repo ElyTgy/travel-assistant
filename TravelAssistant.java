@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
@@ -6,17 +5,19 @@ import java.util.List;
 import java.util.Arrays;
 import javax.swing.SwingUtilities;
 
+
+
 public class TravelAssistant{
+    //instance varaibles
     private GUI gui;
-
-    public TravelAssistant() {
-        gui = new GUI();
-    }
-
     public static final Map<String, List<String>> continentCities = new HashMap<>();
     public static final Map<String, String> cityInfo = new HashMap<>();
 
     
+    
+    
+    
+    //static initializer for initializing continentCities and cityInfo
     static {
         // Initialize continents and cities
         continentCities.put("asia", Arrays.asList("tokyo", "bangkok", "singapore", "dubai", "hong kong"));
@@ -68,8 +69,30 @@ public class TravelAssistant{
         
         // Initialize city information for Antarctica
         cityInfo.put("mcmurdo station", "Location: Antarctica\nPopulation: Approx. 1,000 (summer), 250 (winter)\nTemperature: Varies greatly, average -28°C\nTop 5 Activities: Observe Wildlife, Ice Fishing, Visit Observation Hill, Explore Ice Caves, Participate in Scientific Research");
-    }
+    }//END of static initializer
 
+    
+    
+    
+    
+    /**
+     * @Summary: a wrapper function for printing a blank line
+     * @params: None
+     * @return: TravelAssisntant
+     */
+    public TravelAssistant() {
+        gui = new GUI();
+    }//END of constructor    
+    
+    
+    
+    
+    
+    /**
+     * @Summary: runs the main logic for the program and handles gui
+     * @params: None
+     * @return: None
+     */
     public void run() {
         gui.updateDisplay("Waiting for city selection");
         
@@ -99,7 +122,7 @@ public class TravelAssistant{
                 System.out.println("Invalid continent. Please try again.");
                 Utility.pauseAndClearScreen();
                 continue;
-            }
+            }//END of if
     
             List<String> cities = continentCities.get(continent);
             
@@ -119,7 +142,7 @@ public class TravelAssistant{
             }
             else{
                 System.out.println(info);
-            }
+            }//END of if-else
     
     
             System.out.println("\nDo you want to go back to the menu (M) or exit (E)?");
@@ -127,9 +150,8 @@ public class TravelAssistant{
             if (choice.equalsIgnoreCase("E")) {
                 UI.showBye();
                 break;
-            }
+            }//END of if
             Utility.pauseAndClearScreen();
-        }
-    }
-}
-
+        }//END of while
+    }//END of run
+}//END of TravelAssistant

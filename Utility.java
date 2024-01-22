@@ -3,12 +3,6 @@ import java.util.stream.Collectors;
 
 
 
-/**
- * Write a description of class Utility here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Utility
 {
     /**
@@ -130,23 +124,36 @@ public class Utility
     
     
     
+    /**
+     * Summary: Pauses the program for 1 seconds and then clears the screen
+     * @param: None
+     * @return: None
+     */
     public static void pauseAndClearScreen() {
         try {
             Thread.sleep(1000);
             clearScreen();
         } catch (InterruptedException ex) {
             ex.printStackTrace();
-        }
-    }
+        }//END of try-catch
+    }//END of pauseAndClearScreen
 
     
     
     
     
+    /**
+     * Summary: Clears the screen
+     * @param: None
+     * @return: None
+     */
     public static void clearScreen() {
         System.out.flush();
         System.out.print("\f");
-    }
+    }//END of clearScreen
+    
+    
+    
     
     
     /**
@@ -160,13 +167,21 @@ public class Utility
     }//END of printSpace
     
     
+    
+    
+    
+    /**
+     * @Summary: For capitalizing a string
+     * @params: [String] str: the string to be capitalized
+     * @return: [String]: the capitalized version of the string
+     */
     public static String capitalize(String str) {
-    if (str == null || str.isEmpty()) {
-        return str;
-    }
-
-    return Arrays.stream(str.split("\\s+"))
-                 .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
-                 .collect(Collectors.joining(" "));
-    }
+        if (str == null || str.isEmpty()) {
+            return str;
+        }//END of if statement
+    
+        return Arrays.stream(str.split("\\s+"))
+                     .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                     .collect(Collectors.joining(" "));
+    }//END of capitalize
 }
