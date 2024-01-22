@@ -16,6 +16,8 @@ public class Main
      * @return: None
      */
     public static void main(String[] args) {
+        PhidgetAssn5 phidget = new PhidgetAssn5();
+        phidget.start();
         TravelAssistant obj1 = new TravelAssistant();
         obj1.run();
     }//END of main (starting point)
